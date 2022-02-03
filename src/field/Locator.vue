@@ -365,7 +365,9 @@ export default {
             }
 
             if(this.geocoding && this.location.length) {
-                fetch(this.searchQuery)
+                const fetchInit = { referrerPolicy: 'strict-origin-when-cross-origin' }
+
+                fetch(this.searchQuery, fetchInit)
                     .then(response => response.json())
                     .then(response => {
                         if(response.length || Object.keys(response).length) {
