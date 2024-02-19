@@ -1,8 +1,9 @@
 <?php
 
-return array(
+use Kirby\Content\Content;
+
+return [
 	'toLocation' => function($field) {
-		$structure = new Structure([$field->yaml()], $field->parent());
-	    return $structure->first();
+        return new Content($field->yaml(), $field->parent(), true);
 	},
-);
+];
